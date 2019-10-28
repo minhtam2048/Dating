@@ -23,10 +23,11 @@ namespace DatingApp.API.Migrations
                 nullable: false,
                 defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
 
-            migrationBuilder.AddColumn<string>(
+            migrationBuilder.AddColumn<DateTime>(
                 name: "DateOfBirth",
                 table: "Users",
-                nullable: true);
+                nullable: false,
+                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
 
             migrationBuilder.AddColumn<string>(
                 name: "Gender",
