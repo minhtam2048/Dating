@@ -7,9 +7,11 @@ using DatingApp.API.Dtos;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System;
+using DatingApp.API.Helpers;
 
 namespace DatingApp.API.Controllers
-{
+{ 
+    [ServiceFilter(typeof(LogUserActivity))] //run this method whenever a user controller's method got called
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]

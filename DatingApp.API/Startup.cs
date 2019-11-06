@@ -54,6 +54,7 @@ namespace DatingApp.API
             //Trong cùng 1 request, AddScoped sẽ chỉ được tạo 1 lần duy nhất
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IDatingRepository, DatingRepository>();
+            services.AddScoped<LogUserActivity>();
 
             // login or register
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer
