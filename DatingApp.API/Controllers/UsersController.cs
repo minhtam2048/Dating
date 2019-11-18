@@ -13,7 +13,7 @@ using DatingApp.API.Models;
 namespace DatingApp.API.Controllers
 { 
     [ServiceFilter(typeof(LogUserActivity))] //run this method whenever a user controller's method got called
-    [Authorize]
+    // [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
