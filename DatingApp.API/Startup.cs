@@ -88,10 +88,11 @@ namespace DatingApp.API
             services.AddCors();
             services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             // Mapper.Reset();
-            services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(typeof(DatingRepository).Assembly);
             //seed datas
             services.AddTransient<Seed>();
             //Trong cùng 1 request, AddScoped sẽ chỉ được tạo 1 lần duy nhất
+            services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IDatingRepository, DatingRepository>();
             services.AddScoped<LogUserActivity>();
             
@@ -124,7 +125,7 @@ namespace DatingApp.API
             //  turn off seeding when rander for the 1st time
             // seeder.SeedUsers();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials());
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseMvc();
         }

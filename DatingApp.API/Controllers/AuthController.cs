@@ -61,7 +61,8 @@ namespace DatingApp.API.Controllers
         {
             var user = await _userManager.FindByNameAsync(userForLoginDto.Username);
 
-            var result = await _signInManager.CheckPasswordSignInAsync(user, userForLoginDto.Password, false);
+            var result = await _signInManager
+                .CheckPasswordSignInAsync(user, userForLoginDto.Password, false);
 
             if(result.Succeeded)
             {
@@ -72,7 +73,7 @@ namespace DatingApp.API.Controllers
             
             return Ok(new
             {
-                token = GenerateJwtToken(appUser),
+                token = GenerateJwtToken(appUser).Result,
                 user = userToReturn
             });
         }
