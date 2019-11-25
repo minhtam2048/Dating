@@ -36,10 +36,6 @@ namespace DatingApp.API.Data
 
             });
 
-
-
-
-
             builder.Entity<Like>()
             .HasKey(k => new { k.LikerId, k.LikeeId });
 
